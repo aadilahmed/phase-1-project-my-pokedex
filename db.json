@@ -1,20 +1,18 @@
-[
-    {
-        "pokemon": [
-            {
-                "id": 1,
-                "name": "Bulbasaur",
-                "caught": false,
-                "img-url": "",
-                "nickname": ""        
-            },
-            {
-                "id": 2,
-                "name": "Ivysaur",
-                "caught": false,
-                "img-url": "",
-                "nickname": ""        
-            }
-        ]
-    }
-]
+{
+    "pokemon": [
+        {
+            "id": 1,
+            "name": "Bulbasaur",
+            "caught": false,
+            "image": "",
+            "nickname": ""
+        },
+        {
+            "id": 2,
+            "name": "Ivysaur",
+            "caught": false,
+            "image": "",
+            "nickname": ""
+        }
+    ]
+}
