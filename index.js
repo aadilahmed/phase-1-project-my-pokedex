@@ -30,7 +30,9 @@ function createCard(pokemon){
     card.className = 'card';
 
     let pokeName = document.createElement('h2');
-    pokeName.textContent = pokemon.name;
+    const capitalized = pokemon.name.charAt(0).toUpperCase() + 
+    pokemon.name.slice(1);
+    pokeName.textContent = capitalized;
 
     let pokeNickname = document.createElement('p');
     pokeNickname.textContent = pokemon.nickname;
@@ -39,9 +41,14 @@ function createCard(pokemon){
     pokeImage.className = 'pokemon-image'
     pokeImage.src = pokemon.image;
 
+    let caughtBtn = document.createElement('button');
+    caughtBtn.className = 'caught-btn';
+    caughtBtn.innerText = 'Caught!';
+
     card.append(pokeName);
     card.append(pokeNickname);
-    card.append(pokeImage);   
-    
+    card.append(pokeImage); 
+    card.append(caughtBtn);
+
     return card;
 }
