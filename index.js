@@ -3,27 +3,14 @@ let promises = initializeFetchArray();
 Promise.all(promises)
 .then(results => results.forEach(pokemonObj => {
     console.log(pokemonObj.name); 
-     let pokemon = {
+    let pokemon = {
         name:pokemonObj.name,
         image:pokemonObj.sprites.other["official-artwork"].front_default,
         caught:false,
         nickname:""
     }
 
-    let card = document.createElement('div');
-    card.className = 'card';
-    let pokeName = document.createElement('h2');
-    pokeName.textContent = pokemon.name;
-    let pokeNickname = document.createElement('p');
-    pokeNickname.textContent = pokemon.nickname;
-    let pokeImage = document.createElement('img');
-    pokeImage.className = 'pokemon-image'
-    pokeImage.src = pokemon.image;
-
-    card.append(pokeName);
-    card.append(pokeNickname);
-    card.append(pokeImage);
-
+    let card = createCard(pokemon);
     document.querySelector("#pokemon-collection").appendChild(card); 
  })
 ); 
@@ -36,4 +23,25 @@ function initializeFetchArray(){
     }
 
     return promises;
+}
+
+function createCard(pokemon){
+    let card = document.createElement('div');
+    card.className = 'card';
+
+    let pokeName = document.createElement('h2');
+    pokeName.textContent = pokemon.name;
+
+    let pokeNickname = document.createElement('p');
+    pokeNickname.textContent = pokemon.nickname;
+
+    let pokeImage = document.createElement('img');
+    pokeImage.className = 'pokemon-image'
+    pokeImage.src = pokemon.image;
+
+    card.append(pokeName);
+    card.append(pokeNickname);
+    card.append(pokeImage);   
+    
+    return card;
 }
