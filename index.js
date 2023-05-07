@@ -5,7 +5,8 @@ Promise.all(promises)
     console.log(pokemonObj.name); 
     let pokemon = {
         name:pokemonObj.name,
-        image:pokemonObj.sprites.other["official-artwork"].front_default,
+        number:pokemonObj.id,
+        image: pokemonObj.sprites.front_default,
         caught:false,
         nickname:""
     }
@@ -32,7 +33,8 @@ function createCard(pokemon){
     let pokeName = document.createElement('h2');
     const capitalized = pokemon.name.charAt(0).toUpperCase() + 
     pokemon.name.slice(1);
-    pokeName.textContent = capitalized;
+    pokeName.textContent = `#${pokemon.number} ${capitalized}`;
+    pokeName.className = 'name';
 
     let pokeNickname = document.createElement('p');
     pokeNickname.textContent = pokemon.nickname;
