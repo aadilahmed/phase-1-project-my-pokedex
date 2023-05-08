@@ -29,3 +29,37 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.caught-btn {
+    width:fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+    background-color: #4F74C8;
+    border: 1px solid #4F74C8;
+    border-radius: 5px;
+}
+
+.caught-btn[disabled] {
+    background-color: #faf8f8;
+    color: #4F74C8;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-text {
+    width:5rem;
+    float:left;
+}
+
+.submit {
+    width: fit-content;
+    float:left;
+} 

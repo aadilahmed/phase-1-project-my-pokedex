@@ -2,7 +2,6 @@ let promises = initializeFetchArray();
 
 Promise.all(promises)
 .then(results => results.forEach(pokemonObj => {
-    console.log(pokemonObj.name); 
     let pokemon = {
         name:pokemonObj.name,
         number:pokemonObj.id,
@@ -11,7 +10,7 @@ Promise.all(promises)
         nickname:""
     }
 
-    let card = createCard(pokemon);
+    let card = renderCard(pokemon);
     document.querySelector("#pokemon-collection").appendChild(card); 
  })
 ); 
@@ -26,7 +25,7 @@ function initializeFetchArray(){
     return promises;
 }
 
-function createCard(pokemon){
+function renderCard(pokemon){
     let card = document.createElement('div');
     card.className = 'card';
 
@@ -36,21 +35,30 @@ function createCard(pokemon){
     pokeName.textContent = `#${pokemon.number} ${capitalized}`;
     pokeName.className = 'name';
 
-    let pokeNickname = document.createElement('p');
+    let pokeNickname = document.createElement('h3');
     pokeNickname.textContent = pokemon.nickname;
+    pokeNickname.style.display = 'none';
 
     let pokeImage = document.createElement('img');
     pokeImage.className = 'pokemon-image'
     pokeImage.src = pokemon.image;
 
+    let havePoke = pokemon.caught;
+
     let caughtBtn = document.createElement('button');
     caughtBtn.className = 'caught-btn';
-    caughtBtn.innerText = 'Caught!';
+    caughtBtn.innerText = ' Add to Pokédex '; 
 
     card.append(pokeName);
     card.append(pokeNickname);
     card.append(pokeImage); 
     card.append(caughtBtn);
+
+    card.querySelector('.caught-btn').addEventListener('click', (e) => {
+        havePoke = true;      
+        e.target.disabled = true;
+        e.target.innerText = "  Caught!  "
+    }); 
 
     return card;
 }
