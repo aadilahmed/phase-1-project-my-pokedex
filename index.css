@@ -45,6 +45,10 @@
     color: #4F74C8;
 }
 
+.add-nickname {
+    font-size: .8rem;
+}
+
 a:link {
     text-decoration: none;
 }
@@ -63,3 +67,7 @@ a:link {
     width: fit-content;
     float:left;
 } 
+
+.pokeNickname {
+    font-size: .8rem;
+}

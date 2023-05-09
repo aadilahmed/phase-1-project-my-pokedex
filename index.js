@@ -36,6 +36,7 @@ function renderCard(pokemon){
     pokeName.className = 'name';
 
     let pokeNickname = document.createElement('h3');
+    pokeNickname.className = 'pokeNickname'
     pokeNickname.textContent = pokemon.nickname;
     pokeNickname.style.display = 'none';
 
@@ -51,11 +52,7 @@ function renderCard(pokemon){
     
     let container = createNickname(pokeNickname);
 
-    card.append(pokeName);
-    card.append(container);
-    card.append(pokeNickname);
-    card.append(pokeImage); 
-    card.append(caughtBtn);
+    card.append(pokeName, container, pokeNickname, pokeImage, caughtBtn);
 
     card.querySelector('.caught-btn').addEventListener('click', (e) => {
         havePoke = true;      
@@ -91,8 +88,7 @@ function createNickname(pokeNickname) {
     submit.name = 'submit';
     submit.value = 'Save'; 
     
-    form.appendChild(textbox);
-    form.appendChild(submit);
+    form.append(textbox, submit);
 
     form.style.display = 'none';
 
