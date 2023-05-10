@@ -11,6 +11,7 @@ Promise.all(promises)
     }
 
     let card = renderCard(pokemon);
+    createCard(pokemon);
     document.querySelector("#pokemon-collection").appendChild(card); 
  })
 ); 
@@ -57,7 +58,7 @@ function renderCard(pokemon){
     card.querySelector('.caught-btn').addEventListener('click', (e) => {
         havePoke = true;      
         e.target.disabled = true;
-        e.target.innerText = "  Caught!  "
+        e.target.innerText = "Caught!";
     }); 
 
     return card;
@@ -109,4 +110,15 @@ function createNickname(pokeNickname) {
     container.append(hyperlink);  
     
     return container;
+}
+
+function createCard(pokemon) {
+    fetch("http://localhost:3000/pokemon", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify(pokemon)
+  })
 }
