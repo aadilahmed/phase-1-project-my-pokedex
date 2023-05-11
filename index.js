@@ -11,7 +11,6 @@ Promise.all(promises)
     }
 
     let card = renderCard(pokemon);
-    createCard(pokemon);
     document.querySelector("#pokemon-collection").appendChild(card); 
  })
 ); 
@@ -56,9 +55,10 @@ function renderCard(pokemon){
     card.append(pokeName, container, pokeNickname, pokeImage, caughtBtn);
 
     card.querySelector('.caught-btn').addEventListener('click', (e) => {
-        havePoke = true;      
-        e.target.disabled = true;
-        e.target.innerText = "Caught!";
+        card.querySelector('.caught-btn').disabled = true;
+        card.querySelector('.caught-btn').innerText = "Caught!";
+        pokemon.caught = true;
+        createCard(pokemon);
     }); 
 
     return card;

@@ -1,98 +1,12 @@
 {
   "pokemon": [
     {
-      "id": 1,
-      "name": "Bulbasaur",
-      "caught": false,
-      "image": "",
-      "nickname": ""
-    },
-    {
-      "id": 2,
-      "name": "Ivysaur",
-      "caught": false,
-      "image": "",
-      "nickname": ""
-    },
-    {
-      "name": "bulbasaur",
-      "number": 1,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-      "caught": false,
-      "nickname": "",
-      "id": 3
-    },
-    {
-      "name": "charmander",
-      "number": 4,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-      "caught": false,
-      "nickname": "",
-      "id": 4
-    },
-    {
-      "name": "charmeleon",
-      "number": 5,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-      "caught": false,
-      "nickname": "",
-      "id": 5
-    },
-    {
-      "name": "squirtle",
-      "number": 7,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-      "caught": false,
-      "nickname": "",
-      "id": 6
-    },
-    {
-      "name": "wartortle",
-      "number": 8,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
-      "caught": false,
-      "nickname": "",
-      "id": 7
-    },
-    {
       "name": "ivysaur",
       "number": 2,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-      "caught": false,
+      "caught": true,
       "nickname": "",
-      "id": 8
-    },
-    {
-      "name": "charizard",
-      "number": 6,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-      "caught": false,
-      "nickname": "",
-      "id": 9
-    },
-    {
-      "name": "venusaur",
-      "number": 3,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-      "caught": false,
-      "nickname": "",
-      "id": 10
-    },
-    {
-      "name": "blastoise",
-      "number": 9,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
-      "caught": false,
-      "nickname": "",
-      "id": 11
-    },
-    {
-      "name": "caterpie",
-      "number": 10,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
-      "caught": false,
-      "nickname": "",
-      "id": 12
+      "id": 1
     }
   ]
 }
