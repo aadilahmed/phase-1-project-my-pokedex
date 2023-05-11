@@ -122,3 +122,21 @@ function createCard(pokemon) {
     body: JSON.stringify(pokemon)
   })
 }
+
+function updateCard(pokemon, pokeNickname) {
+     fetch(`http://localhost:3000/pokemon/${pokemon.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          "nickname": pokeNickname
+          })
+        })
+        .then((response) => response.json())
+        .then((pokemonData) => {
+            card.querySelector('.caught-btn').disabled = true;
+            card.querySelector('.caught-btn').innerText = "Caught!";
+        }); 
+}
