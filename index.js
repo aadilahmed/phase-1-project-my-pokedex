@@ -4,6 +4,7 @@ Promise.all(promises)
 .then(results => results.forEach(pokemonObj => {
     let pokemon = {
         name:pokemonObj.name,
+        id: pokemonObj.id,
         number:pokemonObj.id,
         image: pokemonObj.sprites.front_default,
         caught:false,
@@ -11,7 +12,8 @@ Promise.all(promises)
     }
 
     let card = renderCard(pokemon);
-    document.querySelector("#pokemon-collection").appendChild(card); 
+    createCard(pokemon);
+    document.querySelector("#pokemon-collection").appendChild(card);
  })
 ); 
 
@@ -54,11 +56,16 @@ function renderCard(pokemon){
 
     card.append(pokeName, container, pokeNickname, pokeImage, caughtBtn);
 
+    if(havePoke) {
+        card.querySelector('.caught-btn').disabled = true;
+        card.querySelector('.caught-btn').innerText = "Caught!";
+    }
+
     card.querySelector('.caught-btn').addEventListener('click', (e) => {
         card.querySelector('.caught-btn').disabled = true;
         card.querySelector('.caught-btn').innerText = "Caught!";
         pokemon.caught = true;
-        createCard(pokemon);
+        updateCard(pokemon);
     }); 
 
     return card;
@@ -123,7 +130,7 @@ function createCard(pokemon) {
   })
 }
 
-function updateCard(pokemon, pokeNickname) {
+function updateCard(pokemon) {
      fetch(`http://localhost:3000/pokemon/${pokemon.id}`, {
         method: 'PATCH',
         headers: {
@@ -131,12 +138,8 @@ function updateCard(pokemon, pokeNickname) {
           'Accept': 'application/json',
         },
         body: JSON.stringify({
-          "nickname": pokeNickname
+          "caught": pokemon.caught
           })
         })
-        .then((response) => response.json())
-        .then((pokemonData) => {
-            card.querySelector('.caught-btn').disabled = true;
-            card.querySelector('.caught-btn').innerText = "Caught!";
-        }); 
+        .then((response) => response.json());
 }
