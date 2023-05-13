@@ -12,9 +12,9 @@ Promise.all(promises)
     }
 
     createCard(pokemon);
-    let card = renderCard(pokemon);
+    let card = renderPokemon(pokemon);
     document.querySelector("#pokemon-collection").appendChild(card);
- }));
+ })); 
 
 function initializeFetchArray() {
     let promises = [];
@@ -26,7 +26,7 @@ function initializeFetchArray() {
     return promises;
 }
 
-function renderCard(pokemon){
+function renderPokemon(pokemon){
     let card = document.createElement('div');
     card.className = 'card';
 
