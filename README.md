@@ -1,7 +1,7 @@
 # My Pokédex
 A web app to help you keep track of all the Pokemon you've caught on your adventure.  
 
-# Features
+## Features
 * Add Pokémon to your Pokédex by clicking the "Add to Pokédex" button
 * Add a nickname to your Pokémon by clicking the "Add nickname" hyperlink
 
