@@ -60,11 +60,13 @@ function renderPokemon(pokemon){
     if(pokemon.caught) {
         card.querySelector('.caught-btn').disabled = true;
         card.querySelector('.caught-btn').innerText = "Caught!";
+        card.style["background-color"] = "#caedcc";
     }
 
     card.querySelector('.caught-btn').addEventListener('click', (e) => {
         card.querySelector('.caught-btn').disabled = true;
         card.querySelector('.caught-btn').innerText = "Caught!";
+        card.style["background-color"] = "#caedcc";
         pokemon.caught = true;
         updatePokemon(pokemon);
     }); 
