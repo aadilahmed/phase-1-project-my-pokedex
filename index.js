@@ -1,21 +1,3 @@
-/* let promises = initializeFetchArray();
-
-Promise.all(promises)
-.then(results => results.forEach(pokemonObj => {
-    let pokemon = {
-        name:pokemonObj.name,
-        id: pokemonObj.id,
-        number:pokemonObj.id,
-        image: pokemonObj.sprites.front_default,
-        caught:false,
-        nickname:""
-    }
-
-    createPokemon(pokemon);
-    let card = renderPokemon(pokemon);
-    document.querySelector("#pokemon-collection").appendChild(card);
- }));  */
-
 fetch(`http://localhost:3000/pokemon/`)
 .then(response => response.json())
 .then(pokemonData => { 
@@ -24,16 +6,6 @@ fetch(`http://localhost:3000/pokemon/`)
     document.querySelector("#pokemon-collection").appendChild(card);
     })
 }) 
-
-function initializeFetchArray() {
-    let promises = [];
-    for(let i = 0; i < 151; i++) {
-        promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`)
-        .then(response => response.json()));
-    }
-
-    return promises;
-}
 
 function renderPokemon(pokemon){
     let card = document.createElement('div');
@@ -64,11 +36,13 @@ function renderPokemon(pokemon){
     }
 
     card.querySelector('.caught-btn').addEventListener('click', (e) => {
-        card.querySelector('.caught-btn').disabled = true;
-        card.querySelector('.caught-btn').innerText = "Caught!";
-        card.style["background-color"] = "#caedcc";
         pokemon.caught = true;
-        updatePokemon(pokemon);
+        updatePokemon(pokemon, {"caught":pokemon.caught})
+        .then((pokemonData) => {
+            card.querySelector('.caught-btn').disabled = true;
+            card.querySelector('.caught-btn').innerText = "Caught!";
+            card.style["background-color"] = "#caedcc";
+        });
     }); 
 
     return card;
@@ -127,7 +101,6 @@ function createNickname(pokemon) {
     if(pokemon.nickname.length === 0){
         pokeNickname.style.display = 'none';
         removeHyperlink.style.display = 'none';
-
     }
     else {
         pokeNickname.textContent = pokemon.nickname;
@@ -140,23 +113,13 @@ function createNickname(pokemon) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        fetch(`http://localhost:3000/pokemon/${pokemon.id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          "nickname": e.target.nickname.value
-          })
-        })
-        .then((response) => response.json())
+        updatePokemon(pokemon, {"nickname":e.target.nickname.value})
         .then((pokemonData) => {
             pokeNickname.textContent = pokemonData.nickname;
             form.style.display = 'none';
             pokeNickname.style.display = 'block';
             removeHyperlink.style.display = 'block';
-        })        
+        })     
     })
 
     container.append(form, removeHyperlink, pokeNickname, hyperlink);
@@ -164,27 +127,14 @@ function createNickname(pokemon) {
     return container;
 }
 
-function createPokemon(pokemon) {
-    fetch("http://localhost:3000/pokemon", {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify(pokemon)
-  }).catch(err => console.log(err));
-}
-
-function updatePokemon(pokemon) {
-     fetch(`http://localhost:3000/pokemon/${pokemon.id}`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          "caught": pokemon.caught
-          })
-        })
-        .then((response) => response.json());        
+function updatePokemon(pokemon, newValue) {
+    return fetch(`http://localhost:3000/pokemon/${pokemon.id}`, {
+       method: 'PATCH',
+       headers: {
+         'Content-Type': 'application/json',
+         'Accept': 'application/json',
+       },
+       body: JSON.stringify(newValue)
+       })
+       .then((response) => response.json());        
 }

@@ -6,7 +6,7 @@
       "number": 1,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
       "caught": true,
-      "nickname": "jake"
+      "nickname": "tarantula"
     },
     {
       "name": "ivysaur",
@@ -29,7 +29,7 @@
       "id": 4,
       "number": 4,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-      "caught": false,
+      "caught": true,
       "nickname": "ggg"
     },
     {
@@ -37,7 +37,7 @@
       "id": 5,
       "number": 5,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
