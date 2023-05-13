@@ -64,7 +64,7 @@ function renderPokemon(pokemon){
         card.querySelector('.caught-btn').disabled = true;
         card.querySelector('.caught-btn').innerText = "Caught!";
         pokemon.caught = true;
-        updateCard(pokemon);
+        updatePokemon(pokemon);
     }); 
 
     return card;
@@ -142,7 +142,7 @@ function createPokemon(pokemon) {
   }).catch(err => console.log(err));
 }
 
-function updateCard(pokemon) {
+function updatePokemon(pokemon) {
      fetch(`http://localhost:3000/pokemon/${pokemon.id}`, {
         method: 'PATCH',
         headers: {
