@@ -5,16 +5,16 @@
       "id": 1,
       "number": 1,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-      "caught": false,
-      "nickname": ""
+      "caught": true,
+      "nickname": "jar jar"
     },
     {
       "name": "ivysaur",
       "id": 2,
       "number": 2,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-      "caught": false,
-      "nickname": ""
+      "caught": true,
+      "nickname": "pokemon master"
     },
     {
       "name": "venusaur",
@@ -22,7 +22,7 @@
       "number": 3,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
       "caught": false,
-      "nickname": ""
+      "nickname": "Jarjarbinks"
     },
     {
       "name": "charmander",
@@ -53,7 +53,7 @@
       "id": 7,
       "number": 7,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {

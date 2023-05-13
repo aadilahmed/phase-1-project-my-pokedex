@@ -1,4 +1,4 @@
-let promises = initializeFetchArray();
+/* let promises = initializeFetchArray();
 
 Promise.all(promises)
 .then(results => results.forEach(pokemonObj => {
@@ -14,7 +14,16 @@ Promise.all(promises)
     createPokemon(pokemon);
     let card = renderPokemon(pokemon);
     document.querySelector("#pokemon-collection").appendChild(card);
- })); 
+ }));  */
+
+fetch(`http://localhost:3000/pokemon/`)
+.then(response => response.json())
+.then(pokemonData => { 
+    pokemonData.forEach(pokemon => {
+    let card = renderPokemon(pokemon);
+    document.querySelector("#pokemon-collection").appendChild(card);
+    })
+}) 
 
 function initializeFetchArray() {
     let promises = [];
@@ -36,26 +45,19 @@ function renderPokemon(pokemon){
     pokeName.textContent = `#${pokemon.number} ${capitalized}`;
     pokeName.className = 'name';
 
-    let pokeNickname = document.createElement('h3');
-    pokeNickname.className = 'pokeNickname'
-    pokeNickname.textContent = pokemon.nickname;
-    pokeNickname.style.display = 'none';
-
     let pokeImage = document.createElement('img');
     pokeImage.className = 'pokemon-image'
     pokeImage.src = pokemon.image;
-
-    let havePoke = pokemon.caught;
 
     let caughtBtn = document.createElement('button');
     caughtBtn.className = 'caught-btn';
     caughtBtn.innerText = ' Add to Pokédex '; 
     
-    let container = createNickname(pokemon, pokeNickname);
+    let container = createNickname(pokemon);
 
-    card.append(pokeName, container, pokeNickname, pokeImage, caughtBtn);
+    card.append(pokeName, container, pokeImage, caughtBtn);
 
-    if(havePoke) {
+    if(pokemon.caught) {
         card.querySelector('.caught-btn').disabled = true;
         card.querySelector('.caught-btn').innerText = "Caught!";
     }
@@ -70,7 +72,7 @@ function renderPokemon(pokemon){
     return card;
 }
 
-function createNickname(pokemon, pokeNickname) {
+function createNickname(pokemon) {
     let container = document.createElement('div');
     container.className = 'container';
 
@@ -94,6 +96,10 @@ function createNickname(pokemon, pokeNickname) {
     submit.className = 'submit';
     submit.name = 'submit';
     submit.value = 'Save'; 
+
+    let pokeNickname = document.createElement('h3');
+    pokeNickname.className = 'pokeNickname'
+    pokeNickname.textContent = pokemon.nickname;
     
     form.append(textbox, submit);
 
@@ -102,7 +108,17 @@ function createNickname(pokemon, pokeNickname) {
     hyperlink.addEventListener('click', (e) => {
         hyperlink.style.display = 'none';
         form.style.display = 'block'
-    })   
+    })  
+    
+    if(pokemon.nickname.length === 0){
+        pokeNickname.style.display = 'none';
+    }
+    else {
+        pokeNickname.textContent = pokemon.nickname;
+        form.style.display = 'none';
+        pokeNickname.style.display = 'block';
+        hyperlink.style.display = 'none';        
+    }
     
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -126,7 +142,8 @@ function createNickname(pokemon, pokeNickname) {
     })
 
     container.append(form);
-    container.append(hyperlink);  
+    container.append(hyperlink); 
+    container.append(pokeNickname); 
     
     return container;
 }
