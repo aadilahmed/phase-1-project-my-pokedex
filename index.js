@@ -55,11 +55,11 @@ function createNickname(pokemon) {
     let form = document.createElement('form');
     form.className = 'add-nickname-form';
 
-    let hyperlink = document.createElement('a');
-    hyperlink.className = 'add-nickname';
-    hyperlink.setAttribute('href',"javacsript:void(0);");
-    hyperlink.innerText = 'Add nickname'
-    hyperlink.style.display = 'block'
+    let addHyperlink = document.createElement('a');
+    addHyperlink.className = 'add-nickname';
+    addHyperlink.setAttribute('href',"javacsript:void(0);");
+    addHyperlink.innerText = 'Add nickname'
+    addHyperlink.style.display = 'block'
 
     let removeHyperlink = document.createElement('a');
     removeHyperlink.className = 'remove-nickname';
@@ -87,14 +87,14 @@ function createNickname(pokemon) {
 
     form.style.display = 'none';
 
-    hyperlink.addEventListener('click', (e) => {
-        hyperlink.style.display = 'none';
+    addHyperlink.addEventListener('click', (e) => {
+        addHyperlink.style.display = 'none';
         form.style.display = 'block'
     }) 
     
     removeHyperlink.addEventListener('click', (e) => {
         removeHyperlink.style.display = 'none';
-        hyperlink.style.display = 'block';
+        addHyperlink.style.display = 'block';
         pokeNickname.style.display = 'none';
     })
     
@@ -106,7 +106,7 @@ function createNickname(pokemon) {
         pokeNickname.textContent = pokemon.nickname;
         form.style.display = 'none';
         pokeNickname.style.display = 'block';
-        hyperlink.style.display = 'none';   
+        addHyperlink.style.display = 'none';   
         removeHyperlink.style.display = 'block';     
     }
     
@@ -122,7 +122,7 @@ function createNickname(pokemon) {
         })     
     })
 
-    container.append(form, removeHyperlink, pokeNickname, hyperlink);
+    container.append(form, removeHyperlink, pokeNickname, addHyperlink);
     
     return container;
 }
