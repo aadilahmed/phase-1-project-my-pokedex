@@ -6,7 +6,7 @@
       "number": 1,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
       "caught": true,
-      "nickname": "jar jar"
+      "nickname": "jake"
     },
     {
       "name": "ivysaur",
@@ -22,7 +22,7 @@
       "number": 3,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
       "caught": false,
-      "nickname": "Jarjarbinks"
+      "nickname": "tt"
     },
     {
       "name": "charmander",
@@ -30,7 +30,7 @@
       "number": 4,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
       "caught": false,
-      "nickname": ""
+      "nickname": "ggg"
     },
     {
       "name": "charmeleon",

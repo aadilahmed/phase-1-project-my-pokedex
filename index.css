@@ -79,4 +79,11 @@ a:link {
 
 .pokeNickname {
     font-size: .8rem;
+    float:left;
+}
+
+.remove-nickname {
+    font-size:0.8rem;
+    margin-left: 1rem;
+    float:right;
 }
