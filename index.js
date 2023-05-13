@@ -11,7 +11,7 @@ Promise.all(promises)
         nickname:""
     }
 
-    createCard(pokemon);
+    createPokemon(pokemon);
     let card = renderPokemon(pokemon);
     document.querySelector("#pokemon-collection").appendChild(card);
  })); 
@@ -131,7 +131,7 @@ function createNickname(pokemon, pokeNickname) {
     return container;
 }
 
-function createCard(pokemon) {
+function createPokemon(pokemon) {
     fetch("http://localhost:3000/pokemon", {
     method: 'POST',
     headers: {
