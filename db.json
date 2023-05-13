@@ -45,7 +45,7 @@
       "id": 6,
       "number": 6,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {

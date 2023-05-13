@@ -30,18 +30,14 @@ function renderPokemon(pokemon){
     card.append(pokeName, container, pokeImage, caughtBtn);
 
     if(pokemon.caught) {
-        card.querySelector('.caught-btn').disabled = true;
-        card.querySelector('.caught-btn').innerText = "Caught!";
-        card.style["background-color"] = "#caedcc";
+        disableCaughtButton(card)
     }
 
     card.querySelector('.caught-btn').addEventListener('click', (e) => {
         pokemon.caught = true;
         updatePokemon(pokemon, {"caught":pokemon.caught})
         .then((pokemonData) => {
-            card.querySelector('.caught-btn').disabled = true;
-            card.querySelector('.caught-btn').innerText = "Caught!";
-            card.style["background-color"] = "#caedcc";
+            disableCaughtButton(card)
         });
     }); 
 
@@ -137,4 +133,10 @@ function updatePokemon(pokemon, newValue) {
        body: JSON.stringify(newValue)
        })
        .then((response) => response.json());        
+}
+
+function disableCaughtButton(card) {
+    card.querySelector('.caught-btn').disabled = true;
+    card.querySelector('.caught-btn').innerText = "Caught!";
+    card.style["background-color"] = "#caedcc";
 }
