@@ -14,7 +14,7 @@ function renderPokemon(pokemon){
     let pokeName = document.createElement('h2');
     const capitalized = pokemon.name.charAt(0).toUpperCase() + 
     pokemon.name.slice(1);
-    pokeName.textContent = `#${pokemon.number} ${capitalized}`;
+    pokeName.textContent = `#${pokemon.id} ${capitalized}`;
     pokeName.className = 'name';
 
     let pokeImage = document.createElement('img');
@@ -92,6 +92,7 @@ function createNickname(pokemon) {
         removeHyperlink.style.display = 'none';
         addHyperlink.style.display = 'block';
         pokeNickname.style.display = 'none';
+        updatePokemon(pokemon, {"nickname":""});
     })
     
     if(pokemon.nickname.length === 0){
