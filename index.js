@@ -11,15 +11,14 @@ Promise.all(promises)
         nickname:""
     }
 
-    let card = renderCard(pokemon);
     createCard(pokemon);
+    let card = renderCard(pokemon);
     document.querySelector("#pokemon-collection").appendChild(card);
- })
-); 
+ }));
 
-function initializeFetchArray(){
+function initializeFetchArray() {
     let promises = [];
-    for(let i = 0; i < 10; i++) {
+    for(let i = 0; i < 151; i++) {
         promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`)
         .then(response => response.json()));
     }
@@ -52,7 +51,7 @@ function renderCard(pokemon){
     caughtBtn.className = 'caught-btn';
     caughtBtn.innerText = ' Add to Pokédex '; 
     
-    let container = createNickname(pokeNickname);
+    let container = createNickname(pokemon, pokeNickname);
 
     card.append(pokeName, container, pokeNickname, pokeImage, caughtBtn);
 
@@ -71,7 +70,7 @@ function renderCard(pokemon){
     return card;
 }
 
-function createNickname(pokeNickname) {
+function createNickname(pokemon, pokeNickname) {
     let container = document.createElement('div');
     container.className = 'container';
 
@@ -108,9 +107,22 @@ function createNickname(pokeNickname) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        pokeNickname.textContent = e.target.nickname.value;
-        form.style.display = 'none';      
-        pokeNickname.style.display = 'block';        
+        fetch(`http://localhost:3000/pokemon/${pokemon.id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          "nickname": e.target.nickname.value
+          })
+        })
+        .then((response) => response.json())
+        .then((pokemonData) => {
+            pokeNickname.textContent = pokemonData.nickname;
+            form.style.display = 'none';
+            pokeNickname.style.display = 'block';
+        })        
     })
 
     container.append(form);
@@ -127,7 +139,7 @@ function createCard(pokemon) {
       'Accept': 'application/json',
     },
     body: JSON.stringify(pokemon)
-  })
+  }).catch(err => console.log(err));
 }
 
 function updateCard(pokemon) {
@@ -141,5 +153,5 @@ function updateCard(pokemon) {
           "caught": pokemon.caught
           })
         })
-        .then((response) => response.json());
+        .then((response) => response.json());        
 }
