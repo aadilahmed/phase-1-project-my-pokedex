@@ -4,21 +4,21 @@
       "name": "bulbasaur",
       "id": 1,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
       "name": "ivysaur",
       "id": 2,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
       "name": "venusaur",
       "id": 3,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
@@ -32,7 +32,7 @@
       "name": "charmeleon",
       "id": 5,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
@@ -81,7 +81,7 @@
       "name": "butterfree",
       "id": 12,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
@@ -89,7 +89,7 @@
       "id": 13,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png",
       "caught": false,
-      "nickname": ""
+      "nickname": "Charles"
     },
     {
       "name": "kakuna",
@@ -228,7 +228,7 @@
       "name": "nidorino",
       "id": 33,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/33.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
@@ -249,21 +249,21 @@
       "name": "clefable",
       "id": 36,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/36.png",
-      "caught": false,
-      "nickname": ""
+      "caught": true,
+      "nickname": "Cleffie"
     },
     {
       "name": "vulpix",
       "id": 37,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/37.png",
-      "caught": false,
-      "nickname": ""
+      "caught": true,
+      "nickname": "Red"
     },
     {
       "name": "ninetales",
       "id": 38,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
@@ -305,7 +305,7 @@
       "name": "gloom",
       "id": 44,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/44.png",
-      "caught": false,
+      "caught": true,
       "nickname": ""
     },
     {
