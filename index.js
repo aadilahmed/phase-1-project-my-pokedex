@@ -1,3 +1,4 @@
+/* Fetches Pokémon data from local db to render on page */
 fetch(`http://localhost:3000/pokemon/`)
 .then(response => response.json())
 .then(pokemonData => { 
@@ -7,7 +8,7 @@ fetch(`http://localhost:3000/pokemon/`)
     })
 }) 
 
-/* Renders a Pokémon card to the DOM */
+/* Builds a Pokémon card and appends to the DOM */
 function renderPokemon(pokemon){
     let card = document.createElement('div');
     card.className = 'card';
@@ -34,6 +35,7 @@ function renderPokemon(pokemon){
         disableCaughtButton(card)
     }
 
+    /* Changes Pokémon status to 'caught' */
     card.querySelector('.caught-btn').addEventListener('click', (e) => {
         pokemon.caught = true;
         updatePokemon(pokemon, {"caught":pokemon.caught})
@@ -107,6 +109,7 @@ function createNickname(pokemon) {
         setNickname(pokemon, pokeNickname, form, removeHyperlink, addHyperlink); 
     }
     
+    /* Handles form submission and updating of both DOM and database */
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
