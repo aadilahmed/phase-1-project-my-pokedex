@@ -44,6 +44,7 @@ function renderPokemon(pokemon){
     return card;
 }
 
+/* Implements creation of nickname functionality */
 function createNickname(pokemon) {
     let container = document.createElement('div');
     container.className = 'container';
@@ -84,11 +85,13 @@ function createNickname(pokemon) {
     form.style.display = 'none';
 
     addHyperlink.addEventListener('click', (e) => {
+        e.preventDefault();
         addHyperlink.style.display = 'none';
         form.style.display = 'block'
     }) 
     
     removeHyperlink.addEventListener('click', (e) => {
+        e.preventDefault();
         removeHyperlink.style.display = 'none';
         addHyperlink.style.display = 'block';
         pokeNickname.style.display = 'none';

@@ -1,5 +1,5 @@
 # My Pokédex
-A web app to help you keep track of all the Pokemon you've caught on your adventure.  
+A web app to help you keep track of all the Pokémon you've caught on your adventure.  
 
 ## Features
 * Add Pokémon to your Pokédex by clicking the "Add to Pokédex" button
