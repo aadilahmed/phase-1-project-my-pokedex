@@ -7,6 +7,7 @@ fetch(`http://localhost:3000/pokemon/`)
     })
 }) 
 
+/* Renders a Pokémon card to the DOM */
 function renderPokemon(pokemon){
     let card = document.createElement('div');
     card.className = 'card';
@@ -103,11 +104,7 @@ function createNickname(pokemon) {
         removeHyperlink.style.display = 'none';
     }
     else {
-        pokeNickname.textContent = pokemon.nickname;
-        form.style.display = 'none';
-        pokeNickname.style.display = 'block';
-        addHyperlink.style.display = 'none';   
-        removeHyperlink.style.display = 'block';     
+        setNickname(pokemon, pokeNickname, form, removeHyperlink); 
     }
     
     form.addEventListener('submit', (e) => {
@@ -115,10 +112,7 @@ function createNickname(pokemon) {
 
         updatePokemon(pokemon, {"nickname":e.target.nickname.value})
         .then((pokemonData) => {
-            pokeNickname.textContent = pokemonData.nickname;
-            form.style.display = 'none';
-            pokeNickname.style.display = 'block';
-            removeHyperlink.style.display = 'block';
+            setNickname(pokemonData, pokeNickname, form, removeHyperlink);
         })     
     })
 
@@ -126,7 +120,7 @@ function createNickname(pokemon) {
     
     return container;
 }
-
+/* Patches new data into db.json */
 function updatePokemon(pokemon, newValue) {
     return fetch(`http://localhost:3000/pokemon/${pokemon.id}`, {
        method: 'PATCH',
@@ -143,4 +137,11 @@ function disableCaughtButton(card) {
     card.querySelector('.caught-btn').disabled = true;
     card.querySelector('.caught-btn').innerText = "Caught!";
     card.style["background-color"] = "#caedcc";
+}
+
+function setNickname(pokemon, pokeNickname, form, removeHyperlink) {
+    pokeNickname.textContent = pokemon.nickname;
+    form.style.display = 'none';
+    pokeNickname.style.display = 'block';
+    removeHyperlink.style.display = 'block';
 }
