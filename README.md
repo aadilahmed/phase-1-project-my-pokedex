@@ -6,8 +6,7 @@ A web app to help you keep track of all the Pokémon you've caught on your adven
 * Add a nickname to your Pokémon by clicking the "Add nickname" hyperlink
 
 ## Installation Instructions
-Install json-server, and run the command "json-server --watch db.json" to
-run the server. Open index.html in your browser.
+Install json-server. Run the command "json-server --watch db.json" in the directory where the project is located to run the server. Open index.html in your browser.
 
 ## Screenshots
 <img src="/Screenshots/screenshot-1.png">
