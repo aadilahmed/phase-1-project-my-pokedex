@@ -4,14 +4,14 @@
       "name": "bulbasaur",
       "id": 1,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-      "caught": true,
+      "caught": false,
       "nickname": ""
     },
     {
       "name": "ivysaur",
       "id": 2,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-      "caught": true,
+      "caught": false,
       "nickname": ""
     },
     {

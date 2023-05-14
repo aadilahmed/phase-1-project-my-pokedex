@@ -104,7 +104,7 @@ function createNickname(pokemon) {
         removeHyperlink.style.display = 'none';
     }
     else {
-        setNickname(pokemon, pokeNickname, form, removeHyperlink); 
+        setNickname(pokemon, pokeNickname, form, removeHyperlink, addHyperlink); 
     }
     
     form.addEventListener('submit', (e) => {
@@ -112,7 +112,7 @@ function createNickname(pokemon) {
 
         updatePokemon(pokemon, {"nickname":e.target.nickname.value})
         .then((pokemonData) => {
-            setNickname(pokemonData, pokeNickname, form, removeHyperlink);
+            setNickname(pokemonData, pokeNickname, form, removeHyperlink, addHyperlink);
         })     
     })
 
@@ -132,16 +132,17 @@ function updatePokemon(pokemon, newValue) {
        })
        .then((response) => response.json());        
 }
-
+/* Disables caught button functionality */
 function disableCaughtButton(card) {
     card.querySelector('.caught-btn').disabled = true;
     card.querySelector('.caught-btn').innerText = "Caught!";
     card.style["background-color"] = "#caedcc";
 }
-
-function setNickname(pokemon, pokeNickname, form, removeHyperlink) {
+/* Sets nickname and handles hyperlink display */
+function setNickname(pokemon, pokeNickname, form, removeHyperlink, addHyperlink) {
     pokeNickname.textContent = pokemon.nickname;
     form.style.display = 'none';
     pokeNickname.style.display = 'block';
     removeHyperlink.style.display = 'block';
+    addHyperlink.style.display = 'none';
 }
